@@ -1,0 +1,29 @@
+{
+  "name": "cache-deep",
+  "version": "1.0.0",
+  "description": "memory cache with deep clone and ttl",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha *.test.js",
+    "conver": "nyc mocha *.test.js",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "cache",
+    "clone",
+    "memory"
+  ],
+  "author": "Stan Yang",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+    "lodash.clonedeep": "^4.5.0"
+  }
+}
