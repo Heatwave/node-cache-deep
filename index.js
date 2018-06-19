@@ -17,6 +17,17 @@ const Cache = (() => {
 
     /**
      * Cache constructor
+     *
+     * #### Example usage
+     *
+     * ```javascript
+     * // without options
+     * const cache = new CacheDeep();
+     *
+     * // with deepClone options
+     * const cache = new CacheDeep({ deepClone: true });
+     * ```
+     *
      * @param {object} [options={}] cache options setting
      * @param {boolean} [options.deepClone=false] turn on deep clone for cache put or not
      */
