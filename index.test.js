@@ -45,6 +45,13 @@ describe('Cache', () => {
       (() => cache.del(1)).should.throw(TypeError);
     });
 
+    it('should clear all cached items', () => {
+      cache.put('test', 1);
+      should.equal(1, cache.get('test'));
+      cache.clear();
+      should.equal(null, cache.get('test'));
+    });
+
   });
 
   describe('cache with ttl', () => {

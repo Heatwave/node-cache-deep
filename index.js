@@ -34,6 +34,7 @@ const Cache = (() => {
       this.get = this.get.bind(this);
       this.put = this.put.bind(this);
       this.del = this.del.bind(this);
+      this.clear = this.clear.bind(this);
     }
 
     /**
@@ -79,6 +80,14 @@ const Cache = (() => {
     del(key) {
       checkKeyIsString(key);
       _cache.get(this)[key] = null;
+    }
+
+    /**
+     * clear all cached items
+     */
+    clear() {
+      _cacheTimeout.set(this, {});
+      _cache.set(this, {});
     }
   }
 
