@@ -11,5 +11,8 @@ install:
 script:
   - npm run lint
   - npm test
+  - npm run report
+
+after_script: "npm install coveralls && cat ./coverage/lcov.info | coveralls"
 
 sudo: false
