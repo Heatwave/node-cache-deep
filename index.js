@@ -63,7 +63,7 @@ const Cache = (() => {
      * @param {string} key cache key to save the value to cache
      * @param {*} value the value want to cached
      * @param {number} [ttl] time to live, the cache should be delete after this millisecond, if not given, keep the cache forever
-     * @throws {TypeError} when the key is not string, or ttl is not number
+     * @throws {TypeError} when the key is not string
      */
     put(key, value, ttl) {
       checkKeyIsString(key);
