@@ -68,13 +68,13 @@ const Cache = (() => {
     put(key, value, ttl) {
       checkKeyIsString(key);
 
+      clearTimeout(_cacheTimeout.get(this)[key]);
+
       if (_options.get(this).deepClone) {
         _cache.get(this)[key] = cloneDeep(value);
       } else {
         _cache.get(this)[key] = value;
       }
-
-      clearTimeout(_cacheTimeout.get(this)[key]);
 
       if (typeof ttl === 'number') {
         _cacheTimeout.get(this)[key] = setTimeout(() => {
