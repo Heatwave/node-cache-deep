@@ -130,4 +130,36 @@ describe('Cache', () => {
     });
 
   });
+
+  describe('statistics', () => {
+    /**
+     * @type {Cache}
+     */
+    let cache;
+
+    beforeEach(() => {
+      cache = new Cache({
+        deepClone: true
+      });
+    });
+
+    it('should get count and hit right', () => {
+      let stat = cache.statistics();
+      should.equal(0, stat.count);
+      should.equal(0, stat.hit);
+
+      cache.put('test', 1);
+      cache.get('data');
+
+      stat = cache.statistics();
+      should.equal(1, stat.count);
+      should.equal(0, stat.hit);
+
+      cache.get('test');
+
+      stat = cache.statistics();
+      should.equal(2, stat.count);
+      should.equal(1, stat.hit);
+    });
+  });
 });

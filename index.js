@@ -12,6 +12,7 @@ const Cache = (() => {
   const _cache = new WeakMap();
   const _cacheTimeout = new WeakMap();
   const _options = new WeakMap();
+  const _statistics = new WeakMap();
 
   class Cache {
 
@@ -41,6 +42,10 @@ const Cache = (() => {
       _options.set(this, {
         deepClone: options.deepClone
       });
+      _statistics.set(this, {
+        count: 0,
+        hit: 0
+      });
 
       this.get = this.get.bind(this);
       this.put = this.put.bind(this);
@@ -55,7 +60,16 @@ const Cache = (() => {
      */
     get(key) {
       checkKeyIsString(key);
-      return _cache.get(this)[key] === undefined ? null : _cache.get(this)[key];
+
+      _statistics.get(this).count += 1;
+
+      const result = _cache.get(this)[key] === undefined ? null : _cache.get(this)[key];
+
+      if (result !== null) {
+        _statistics.get(this).hit +=1;
+      }
+
+      return result;
     }
 
     /**
@@ -99,6 +113,15 @@ const Cache = (() => {
     clear() {
       _cacheTimeout.set(this, {});
       _cache.set(this, {});
+    }
+
+    statistics() {
+      const stat = _statistics.get(this);
+
+      return {
+        count: stat.count,
+        hit: stat.hit
+      };
     }
   }
 
