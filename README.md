@@ -2,6 +2,7 @@
 
 Node.js cache library with deep clone
 
+[![NPM Version](https://img.shields.io/npm/v/cache-deep.svg)](https://npmjs.org/package/cache-deep)
 [![Build Status](https://travis-ci.org/Heatwave/node-cache-deep.svg?branch=master)](https://travis-ci.org/Heatwave/node-cache-deep)
 [![Coverage Status](https://coveralls.io/repos/github/Heatwave/node-cache-deep/badge.svg?branch=master)](https://coveralls.io/github/Heatwave/node-cache-deep?branch=master)
 
