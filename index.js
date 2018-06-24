@@ -115,6 +115,16 @@ const Cache = (() => {
       _cache.set(this, {});
     }
 
+    /**
+     * @typedef Statistics
+     * @property {number} count count of get cache
+     * @property {number} hit the number of get cache hit the right key
+     */
+
+    /**
+     * get the cache hit rate info
+     * @returns {Statistics} statistics info
+     */
     statistics() {
       const stat = _statistics.get(this);
 
