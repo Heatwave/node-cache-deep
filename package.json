@@ -1,6 +1,6 @@
 {
   "name": "cache-deep",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "memory cache with deep clone and ttl",
   "main": "index.js",
   "scripts": {
