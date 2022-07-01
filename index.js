@@ -66,7 +66,7 @@ const Cache = (() => {
       const result = _cache.get(this)[key] === undefined ? null : _cache.get(this)[key];
 
       if (result !== null) {
-        _statistics.get(this).hit +=1;
+        _statistics.get(this).hit += 1;
       }
 
       return result;
